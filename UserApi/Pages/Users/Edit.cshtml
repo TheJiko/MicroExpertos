@@ -1,0 +1,81 @@
+﻿@page
+@model UserApi.Pages.Users.EditModel
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2 class="text-info">Editar Usuario</h2>
+
+<div class="border">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <input type="hidden" asp-for="user.Id" />
+
+        <div class="container" style="padding:30px;">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="user.Name"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="user.Name" class="form-control" placeholder="Ingrese nombre"/>
+                    </div>
+                    <span asp-validation-for="user.Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="user.LastName"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="user.LastName" class="form-control" placeholder="Ingrese apellido"/>
+                    </div>
+                    <span asp-validation-for="user.LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="user.Email"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="email" asp-for="user.Email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese email"/>
+                    </div>
+                    <span asp-validation-for="user.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="user.Address"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="user.Address" class="form-control" placeholder="Ingrese direccion"/>
+                    </div>
+                    <span asp-validation-for="user.Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <input type="submit" value="Editar" class="btn btn-primary form-control" />
+                    </div>
+                    <div class="col-sm-2">
+                        <a asp-page="Index" class="btn btn-success form-control">Volver a Lista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{ 
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
